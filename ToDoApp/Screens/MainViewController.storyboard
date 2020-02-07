@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" title="TO DO LIST" id="zYg-yg-5hY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xfa-jd-A09">
                             <connections>
-                                <action selector="eddTaskButton:" destination="rH7-Ih-9hS" id="e2p-4z-zgp"/>
+                                <action selector="addTaskButton:" destination="rH7-Ih-9hS" id="Wbq-iA-3JN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
