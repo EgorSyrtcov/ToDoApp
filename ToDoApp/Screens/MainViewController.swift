@@ -22,7 +22,7 @@ final class MainViewController: UIViewController, StoryboardInitializable {
         super.viewDidLoad()
     
     }
-    @IBAction private func eddTaskButton(_ sender: UIBarButtonItem) {
+    @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {
         let createTaskViewController = CreateTaskViewController.initFromStoryboard()
         createTaskViewController.complition = { [weak self] icon in
             
