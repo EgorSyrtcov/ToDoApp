@@ -18,11 +18,6 @@ final class CreateTaskViewController: UIViewController {
     @IBOutlet private weak var nameTaskTextView: UITextView!
     @IBOutlet private weak var iconImageView: UIImageView!
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func selectionIconButton(_ sender: UIButton) {
         let pickIconViewController = PickIconViewController.initFromStoryboard()
         pickIconViewController.complition = { [weak self] task in

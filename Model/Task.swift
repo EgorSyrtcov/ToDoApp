@@ -9,7 +9,7 @@
 import Foundation
 
 struct Task {
-    //let imageTitle: String
+
     var imageName: String
     var name: String?
 }

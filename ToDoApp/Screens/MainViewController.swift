@@ -9,13 +9,9 @@
 import UIKit
 
 enum Properties: String {
-    case MainCellId
-    case PickIconCellId
+    case MainCellId = "MainCellId"
+    case PickIconCellId = "PickIconCellId"
 }
-
-//private struct Properties {
-//    static let сellReuseIdentifier = "MainCellId"
-//}
 
 final class MainViewController: UIViewController {
     
@@ -23,10 +19,7 @@ final class MainViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
     
-    }
     @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {
         let createTaskViewController = CreateTaskViewController.initFromStoryboard()
         createTaskViewController.complition = { [weak self] icon in
