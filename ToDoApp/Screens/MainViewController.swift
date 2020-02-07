@@ -14,13 +14,13 @@ private struct Properties {
 
 final class MainViewController: UIViewController, StoryboardInitializable {
     
-    var iconsModel: [IconModel]?
+    var iconsModel: [IconModel]? = []
     
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
     }
     @IBAction private func eddTaskButton(_ sender: UIBarButtonItem) {
         let createTaskViewController = CreateTaskViewController.initFromStoryboard()
@@ -28,12 +28,13 @@ final class MainViewController: UIViewController, StoryboardInitializable {
             
             guard let icon = icon else {return}
             self?.iconsModel?.append(icon)
-            print(icon)
-            self?.tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
         navigationController?.pushViewController(createTaskViewController, animated: true)
     }
-    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,7 +47,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.сellReuseIdentifier)
         let icon = iconsModel?[indexPath.row]
         cell.textLabel?.text = icon?.task
-        cell.imageView?.image = UIImage(named: icon?.imageName ?? "Baby")
+        cell.imageView?.image = UIImage(named: icon?.imageName ?? "Checklist")
         return cell
     }
     

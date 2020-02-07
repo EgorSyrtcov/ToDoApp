@@ -33,7 +33,7 @@ final class CreateTaskViewController: UIViewController, StoryboardInitializable 
     @IBAction func saveTaskButton(_ sender: UIButton) {
         
         guard let newTask = nameTaskTextView.text, newTask.isEmpty == false else { return}
-        let iconNew = IconModel(name: "", imageName: icon?.imageName ?? "Baby", task: newTask)
+        let iconNew = IconModel(name: "", imageName: icon?.imageName ?? "Checklist", task: newTask)
         complition?(iconNew)
         navigationController?.popViewController(animated: true)
     }
