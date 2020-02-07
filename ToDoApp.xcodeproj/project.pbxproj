@@ -12,6 +12,13 @@
 		2EEDC73923EC339400A6113F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC73823EC339400A6113F /* Assets.xcassets */; };
 		2EEDC73C23EC339400A6113F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC73A23EC339400A6113F /* LaunchScreen.storyboard */; };
 		2EEDC74523EC3C3500A6113F /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */; };
+		2EEDC74923EC45D800A6113F /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC74823EC45D800A6113F /* CreateTaskViewController.swift */; };
+		2EEDC74B23EC45EE00A6113F /* CreateTaskViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC74A23EC45EE00A6113F /* CreateTaskViewController.storyboard */; };
+		2EEDC74E23EC479000A6113F /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC74D23EC479000A6113F /* StoryboardInitializable.swift */; };
+		2EEDC75023EC53CB00A6113F /* PickIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC74F23EC53CB00A6113F /* PickIconViewController.swift */; };
+		2EEDC75223EC53F000A6113F /* PickIconViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC75123EC53F000A6113F /* PickIconViewController.storyboard */; };
+		2EEDC75523EC58FA00A6113F /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC75423EC58FA00A6113F /* IconModel.swift */; };
+		2EEDC75723EC5B2700A6113F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC75623EC5B2700A6113F /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		2EEDC73B23EC339400A6113F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EEDC73D23EC339400A6113F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
+		2EEDC74823EC45D800A6113F /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		2EEDC74A23EC45EE00A6113F /* CreateTaskViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTaskViewController.storyboard; sourceTree = "<group>"; };
+		2EEDC74D23EC479000A6113F /* StoryboardInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		2EEDC74F23EC53CB00A6113F /* PickIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickIconViewController.swift; sourceTree = "<group>"; };
+		2EEDC75123EC53F000A6113F /* PickIconViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickIconViewController.storyboard; sourceTree = "<group>"; };
+		2EEDC75423EC58FA00A6113F /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
+		2EEDC75623EC5B2700A6113F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +52,8 @@
 		2EEDC72523EC339200A6113F = {
 			isa = PBXGroup;
 			children = (
+				2EEDC74C23EC476500A6113F /* Extension */,
+				2EEDC75323EC58C000A6113F /* Model */,
 				2EEDC73023EC339200A6113F /* ToDoApp */,
 				2EEDC72F23EC339200A6113F /* Products */,
 			);
@@ -56,8 +72,6 @@
 			children = (
 				2EEDC73123EC339200A6113F /* AppDelegate.swift */,
 				2EEDC74323EC33D600A6113F /* Screens */,
-				2EEDC73323EC339200A6113F /* MainViewController.swift */,
-				2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */,
 				2EEDC73823EC339400A6113F /* Assets.xcassets */,
 				2EEDC73A23EC339400A6113F /* LaunchScreen.storyboard */,
 				2EEDC73D23EC339400A6113F /* Info.plist */,
@@ -68,8 +82,31 @@
 		2EEDC74323EC33D600A6113F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2EEDC73323EC339200A6113F /* MainViewController.swift */,
+				2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */,
+				2EEDC74823EC45D800A6113F /* CreateTaskViewController.swift */,
+				2EEDC74A23EC45EE00A6113F /* CreateTaskViewController.storyboard */,
+				2EEDC74F23EC53CB00A6113F /* PickIconViewController.swift */,
+				2EEDC75123EC53F000A6113F /* PickIconViewController.storyboard */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		2EEDC74C23EC476500A6113F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC74D23EC479000A6113F /* StoryboardInitializable.swift */,
+				2EEDC75623EC5B2700A6113F /* DataManager.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2EEDC75323EC58C000A6113F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC75423EC58FA00A6113F /* IconModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,9 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEDC74B23EC45EE00A6113F /* CreateTaskViewController.storyboard in Resources */,
 				2EEDC73C23EC339400A6113F /* LaunchScreen.storyboard in Resources */,
 				2EEDC73923EC339400A6113F /* Assets.xcassets in Resources */,
 				2EEDC74523EC3C3500A6113F /* MainViewController.storyboard in Resources */,
+				2EEDC75223EC53F000A6113F /* PickIconViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +184,11 @@
 			files = (
 				2EEDC73423EC339200A6113F /* MainViewController.swift in Sources */,
 				2EEDC73223EC339200A6113F /* AppDelegate.swift in Sources */,
+				2EEDC75523EC58FA00A6113F /* IconModel.swift in Sources */,
+				2EEDC75723EC5B2700A6113F /* DataManager.swift in Sources */,
+				2EEDC74E23EC479000A6113F /* StoryboardInitializable.swift in Sources */,
+				2EEDC74923EC45D800A6113F /* CreateTaskViewController.swift in Sources */,
+				2EEDC75023EC53CB00A6113F /* PickIconViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
