@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct IconModel {
-    let name: String
+struct Task {
+    //let imageTitle: String
     var imageName: String
-    var task: String?
+    var name: String?
 }

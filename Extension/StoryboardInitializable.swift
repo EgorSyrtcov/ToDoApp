@@ -28,3 +28,7 @@ extension StoryboardInitializable where Self: UIViewController {
         return viewController
     }
 }
+
+extension UIViewController : StoryboardInitializable {}
+    
+

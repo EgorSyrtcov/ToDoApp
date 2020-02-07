@@ -8,41 +8,33 @@
 
 import UIKit
 
-private struct Properties {
-    static let сellReuseIdentifier = "PickIconCellId"
-}
+class PickIconViewController: UIViewController {
+    
+    let tasksModel = DataManager.createIcon()
 
-class PickIconViewController: UIViewController, StoryboardInitializable {
+    var complition: (block)?
     
-    let iconsModel = DataManager.createIcon()
+    @IBOutlet private weak var tableView: UITableView!
     
-    var complition: ((_ icon: IconModel) -> Void)?
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
 
 extension PickIconViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return iconsModel.count
+        return tasksModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.сellReuseIdentifier)
-        let icon = iconsModel[indexPath.row]
-        cell.textLabel?.text = icon.name
-        cell.imageView?.image = UIImage(named: icon.imageName)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.PickIconCellId.rawValue)
+        let task = tasksModel[indexPath.row]
+        cell.textLabel?.text = task.imageName
+        cell.imageView?.image = UIImage(named: task.imageName)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let icon = iconsModel[indexPath.row]
-        complition?(icon)
+        let task = tasksModel[indexPath.row]
+        complition?(task)
         navigationController?.popViewController(animated: true)
     }
 }

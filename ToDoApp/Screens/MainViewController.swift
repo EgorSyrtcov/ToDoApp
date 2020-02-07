@@ -8,13 +8,18 @@
 
 import UIKit
 
-private struct Properties {
-    static let сellReuseIdentifier = "MainCellId"
+enum Properties: String {
+    case MainCellId
+    case PickIconCellId
 }
 
-final class MainViewController: UIViewController, StoryboardInitializable {
+//private struct Properties {
+//    static let сellReuseIdentifier = "MainCellId"
+//}
+
+final class MainViewController: UIViewController {
     
-    var iconsModel: [IconModel]? = []
+    var iconsModel: [Task]? = []
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -44,9 +49,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.сellReuseIdentifier)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.MainCellId.rawValue)
         let icon = iconsModel?[indexPath.row]
-        cell.textLabel?.text = icon?.task
+        cell.textLabel?.text = icon?.name
         cell.imageView?.image = UIImage(named: icon?.imageName ?? "Checklist")
         return cell
     }

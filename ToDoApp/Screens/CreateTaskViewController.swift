@@ -8,13 +8,15 @@
 
 import UIKit
 
-final class CreateTaskViewController: UIViewController, StoryboardInitializable {
+typealias block = ((_ task: Task?) -> Void)
+
+final class CreateTaskViewController: UIViewController {
     
-    var icon: IconModel?
-    var complition: ((_ icon: IconModel?) -> Void)?
+    var task: Task?
+    var complition: (block)?
     
-    @IBOutlet weak var nameTaskTextView: UITextView!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet private weak var nameTaskTextView: UITextView!
+    @IBOutlet private weak var iconImageView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -23,9 +25,9 @@ final class CreateTaskViewController: UIViewController, StoryboardInitializable 
     
     @IBAction func selectionIconButton(_ sender: UIButton) {
         let pickIconViewController = PickIconViewController.initFromStoryboard()
-        pickIconViewController.complition = { [weak self] icon in
-            self?.iconImageView.image = UIImage(named: icon.imageName)
-            self?.icon = icon
+        pickIconViewController.complition = { [weak self] task in
+            self?.iconImageView.image = UIImage(named: task?.imageName ?? "Checklist")
+            self?.task = task
         }
         navigationController?.pushViewController(pickIconViewController, animated: true)
     }
@@ -33,8 +35,8 @@ final class CreateTaskViewController: UIViewController, StoryboardInitializable 
     @IBAction func saveTaskButton(_ sender: UIButton) {
         
         guard let newTask = nameTaskTextView.text, newTask.isEmpty == false else { return}
-        let iconNew = IconModel(name: "", imageName: icon?.imageName ?? "Checklist", task: newTask)
-        complition?(iconNew)
+        let taskNew = Task(imageName: task?.imageName ?? "Checklist", name: newTask)
+        complition?(taskNew)
         navigationController?.popViewController(animated: true)
     }
 }
