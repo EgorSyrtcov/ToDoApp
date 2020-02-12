@@ -1,9 +1,6 @@
 excluded:
   - Pods
-  - RT-ITV
-  - Tv(Common)/Vendors
-  - Tv(iOS)/Vendors
-  - Tv(tvOS)/Vendors
+  - ToDoApp
 disabled_rules:
   - todo
   - trailing_whitespace
