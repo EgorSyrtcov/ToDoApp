@@ -17,7 +17,8 @@ class CreatePresenter {
     }
     
     func presentPickIconVC() {
-        guard let viewController = UIStoryboard(name: "PickIconViewController", bundle: nil).instantiateInitialViewController() as? PickIconViewController else { return }
+        guard let viewController = UIStoryboard(name: "PickIconViewController",
+                                                bundle: nil).instantiateInitialViewController() as? PickIconViewController else { return }
         viewController.presenter = PickIconPresenter(view: viewController)
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
