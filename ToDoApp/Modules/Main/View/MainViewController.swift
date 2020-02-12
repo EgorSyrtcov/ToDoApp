@@ -35,7 +35,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.MainCellId.rawValue)
         let task = defaultTask?[indexPath.row]
-        cell.textLabel?.text = "\(task?.name ?? "")" 
+        cell.textLabel?.text = task?.name ?? "" 
         cell.imageView?.image = UIImage(named: task?.imageName ?? "Checklist")
         return cell
     }
