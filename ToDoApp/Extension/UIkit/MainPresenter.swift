@@ -20,7 +20,9 @@ class MainPresenter {
     }
     
     func presentCreateVC() {
-        guard let viewController = UIStoryboard(name: "CreateTaskViewController", bundle: nil).instantiateInitialViewController() as? CreateTaskViewController else { return }
+        guard let viewController = UIStoryboard(name: "CreateTaskViewController",
+                                                bundle: nil)
+        .instantiateInitialViewController() as? CreateTaskViewController else { return }
         viewController.presenter = CreatePresenter(view: viewController)
         view?.navigationController?.pushViewController(viewController, animated: true)
     }

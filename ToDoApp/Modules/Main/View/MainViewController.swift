@@ -9,8 +9,8 @@
 import UIKit
 
 enum Properties: String {
-    case MainCellId = "MainCellId"
-    case PickIconCellId = "PickIconCellId"
+    case mainCellId = "MainCellId"
+    case pickIconCellId = "PickIconCellId"
 }
 
 final class MainViewController: UIViewController {
@@ -33,7 +33,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.MainCellId.rawValue)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
         let task = defaultTask?[indexPath.row]
         cell.textLabel?.text = task?.name ?? "" 
         cell.imageView?.image = UIImage(named: task?.imageName ?? "Checklist")

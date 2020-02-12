@@ -11,7 +11,8 @@ import UIKit
 class SplashController: UIViewController {
     
     override func viewDidLoad() {
-        guard let viewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateInitialViewController() as? MainViewController else { return }
+        guard let viewController = UIStoryboard(name: "MainViewController",
+                                                bundle: nil).instantiateInitialViewController() as? MainViewController else { return }
         viewController.presenter = MainPresenter(view: viewController)
         navigationController?.pushViewController(viewController, animated: true)
     }

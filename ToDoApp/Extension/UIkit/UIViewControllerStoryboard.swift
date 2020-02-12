@@ -8,4 +8,4 @@
 
 import UIKit
 
-extension UIViewController : StoryboardInitializable {}
+extension UIViewController: StoryboardInitializable {}
