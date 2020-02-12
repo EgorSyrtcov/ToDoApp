@@ -11,8 +11,7 @@ import UIKit
 class PickIconViewController: UIViewController {
     
     var presenter: PickIconPresenter!
-    
-    let tasksModel = DataManager.createIcon()
+    var taskModel: [Task] = []
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -21,12 +20,12 @@ class PickIconViewController: UIViewController {
 extension PickIconViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasksModel.count
+        return taskModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.PickIconCellId.rawValue)
-        let task = tasksModel[indexPath.row]
+        let task = taskModel[indexPath.row]
         cell.textLabel?.text = task.imageName
         cell.imageView?.image = UIImage(named: task.imageName)
         return cell
