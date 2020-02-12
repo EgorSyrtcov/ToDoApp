@@ -10,10 +10,10 @@ import UIKit
 
 class PickIconViewController: UIViewController {
     
+    var presenter: PickIconPresenter!
+    
     let tasksModel = DataManager.createIcon()
 
-    var complition: (block)?
-    
     @IBOutlet private weak var tableView: UITableView!
     
 }
@@ -33,8 +33,6 @@ extension PickIconViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = tasksModel[indexPath.row]
-        complition?(task)
-        navigationController?.popViewController(animated: true)
+     
     }
 }

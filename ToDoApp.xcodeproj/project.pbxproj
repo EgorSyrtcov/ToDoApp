@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EE7EAE623F3D40200CEF144 /* UIViewControllerStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EAE523F3D40200CEF144 /* UIViewControllerStoryboard.swift */; };
+		2EE7EAF623F3D7B600CEF144 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EAF523F3D7B600CEF144 /* MainPresenter.swift */; };
+		2EE7EAF823F3D86700CEF144 /* CreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EAF723F3D86700CEF144 /* CreatePresenter.swift */; };
+		2EE7EAFA23F3D8EB00CEF144 /* PickIconPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EAF923F3D8EB00CEF144 /* PickIconPresenter.swift */; };
+		2EE7EAFC23F3DA5800CEF144 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EAFB23F3DA5800CEF144 /* SplashController.swift */; };
+		2EE7EAFE23F3DA9000CEF144 /* SplashController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE7EAFD23F3DA9000CEF144 /* SplashController.storyboard */; };
 		2EEDC73223EC339200A6113F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC73123EC339200A6113F /* AppDelegate.swift */; };
 		2EEDC73423EC339200A6113F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC73323EC339200A6113F /* MainViewController.swift */; };
 		2EEDC73923EC339400A6113F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC73823EC339400A6113F /* Assets.xcassets */; };
@@ -22,6 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EE7EAE523F3D40200CEF144 /* UIViewControllerStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerStoryboard.swift; sourceTree = "<group>"; };
+		2EE7EAF523F3D7B600CEF144 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainPresenter.swift; path = ToDoApp/Extension/UIkit/MainPresenter.swift; sourceTree = SOURCE_ROOT; };
+		2EE7EAF723F3D86700CEF144 /* CreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatePresenter.swift; path = ToDoApp/Extension/UIkit/CreatePresenter.swift; sourceTree = SOURCE_ROOT; };
+		2EE7EAF923F3D8EB00CEF144 /* PickIconPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickIconPresenter.swift; path = ToDoApp/Extension/UIkit/PickIconPresenter.swift; sourceTree = SOURCE_ROOT; };
+		2EE7EAFB23F3DA5800CEF144 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		2EE7EAFD23F3DA9000CEF144 /* SplashController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashController.storyboard; sourceTree = "<group>"; };
 		2EEDC72E23EC339200A6113F /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEDC73123EC339200A6113F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EEDC73323EC339200A6113F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -49,12 +61,160 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EE7EAE223F3D29B00CEF144 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAFB23F3DA5800CEF144 /* SplashController.swift */,
+				2EE7EAFD23F3DA9000CEF144 /* SplashController.storyboard */,
+				2EEDC73A23EC339400A6113F /* LaunchScreen.storyboard */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		2EE7EAE323F3D39500CEF144 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC74D23EC479000A6113F /* StoryboardInitializable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2EE7EAE423F3D3D200CEF144 /* UIkit */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAE523F3D40200CEF144 /* UIViewControllerStoryboard.swift */,
+			);
+			path = UIkit;
+			sourceTree = "<group>";
+		};
+		2EE7EAE723F3D46300CEF144 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAE823F3D48800CEF144 /* Assets */,
+				2EE7EAE923F3D49600CEF144 /* Plist */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		2EE7EAE823F3D48800CEF144 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC73823EC339400A6113F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2EE7EAE923F3D49600CEF144 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC73D23EC339400A6113F /* Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		2EE7EAEA23F3D5FA00CEF144 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC75323EC58C000A6113F /* Model */,
+				2EE7EAEC23F3D6B100CEF144 /* Main */,
+				2EE7EAEF23F3D6E100CEF144 /* Create */,
+				2EE7EAF223F3D71200CEF144 /* PickIcon */,
+				2EE7EAE223F3D29B00CEF144 /* Splash */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2EE7EAEB23F3D64900CEF144 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC73123EC339200A6113F /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2EE7EAEC23F3D6B100CEF144 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAEE23F3D6D300CEF144 /* Presenter */,
+				2EE7EAED23F3D6C700CEF144 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2EE7EAED23F3D6C700CEF144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC73323EC339200A6113F /* MainViewController.swift */,
+				2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EE7EAEE23F3D6D300CEF144 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAF523F3D7B600CEF144 /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2EE7EAEF23F3D6E100CEF144 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAF123F3D70000CEF144 /* Presenter */,
+				2EE7EAF023F3D6F800CEF144 /* View */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		2EE7EAF023F3D6F800CEF144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC74823EC45D800A6113F /* CreateTaskViewController.swift */,
+				2EEDC74A23EC45EE00A6113F /* CreateTaskViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EE7EAF123F3D70000CEF144 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAF723F3D86700CEF144 /* CreatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2EE7EAF223F3D71200CEF144 /* PickIcon */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAF423F3D72400CEF144 /* Presenter */,
+				2EE7EAF323F3D71E00CEF144 /* View */,
+			);
+			path = PickIcon;
+			sourceTree = "<group>";
+		};
+		2EE7EAF323F3D71E00CEF144 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EEDC74F23EC53CB00A6113F /* PickIconViewController.swift */,
+				2EEDC75123EC53F000A6113F /* PickIconViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EE7EAF423F3D72400CEF144 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2EE7EAF923F3D8EB00CEF144 /* PickIconPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		2EEDC72523EC339200A6113F = {
 			isa = PBXGroup;
 			children = (
-				2EEDC74C23EC476500A6113F /* Extension */,
-				2EEDC75323EC58C000A6113F /* Model */,
 				2EEDC73023EC339200A6113F /* ToDoApp */,
+				2EE7EAE723F3D46300CEF144 /* Resourses */,
 				2EEDC72F23EC339200A6113F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,32 +230,18 @@
 		2EEDC73023EC339200A6113F /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
-				2EEDC73123EC339200A6113F /* AppDelegate.swift */,
-				2EEDC74323EC33D600A6113F /* Screens */,
-				2EEDC73823EC339400A6113F /* Assets.xcassets */,
-				2EEDC73A23EC339400A6113F /* LaunchScreen.storyboard */,
-				2EEDC73D23EC339400A6113F /* Info.plist */,
+				2EE7EAEB23F3D64900CEF144 /* Application */,
+				2EEDC74C23EC476500A6113F /* Extension */,
+				2EE7EAE323F3D39500CEF144 /* Protocols */,
+				2EE7EAEA23F3D5FA00CEF144 /* Modules */,
 			);
 			path = ToDoApp;
-			sourceTree = "<group>";
-		};
-		2EEDC74323EC33D600A6113F /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				2EEDC73323EC339200A6113F /* MainViewController.swift */,
-				2EEDC74423EC3C3500A6113F /* MainViewController.storyboard */,
-				2EEDC74823EC45D800A6113F /* CreateTaskViewController.swift */,
-				2EEDC74A23EC45EE00A6113F /* CreateTaskViewController.storyboard */,
-				2EEDC74F23EC53CB00A6113F /* PickIconViewController.swift */,
-				2EEDC75123EC53F000A6113F /* PickIconViewController.storyboard */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		2EEDC74C23EC476500A6113F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				2EEDC74D23EC479000A6113F /* StoryboardInitializable.swift */,
+				2EE7EAE423F3D3D200CEF144 /* UIkit */,
 				2EEDC75623EC5B2700A6113F /* DataManager.swift */,
 			);
 			path = Extension;
@@ -172,6 +318,7 @@
 				2EEDC73923EC339400A6113F /* Assets.xcassets in Resources */,
 				2EEDC74523EC3C3500A6113F /* MainViewController.storyboard in Resources */,
 				2EEDC75223EC53F000A6113F /* PickIconViewController.storyboard in Resources */,
+				2EE7EAFE23F3DA9000CEF144 /* SplashController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,8 +331,13 @@
 			files = (
 				2EEDC73423EC339200A6113F /* MainViewController.swift in Sources */,
 				2EEDC73223EC339200A6113F /* AppDelegate.swift in Sources */,
+				2EE7EAF823F3D86700CEF144 /* CreatePresenter.swift in Sources */,
+				2EE7EAE623F3D40200CEF144 /* UIViewControllerStoryboard.swift in Sources */,
 				2EEDC75523EC58FA00A6113F /* Task.swift in Sources */,
+				2EE7EAF623F3D7B600CEF144 /* MainPresenter.swift in Sources */,
+				2EE7EAFA23F3D8EB00CEF144 /* PickIconPresenter.swift in Sources */,
 				2EEDC75723EC5B2700A6113F /* DataManager.swift in Sources */,
+				2EE7EAFC23F3DA5800CEF144 /* SplashController.swift in Sources */,
 				2EEDC74E23EC479000A6113F /* StoryboardInitializable.swift in Sources */,
 				2EEDC74923EC45D800A6113F /* CreateTaskViewController.swift in Sources */,
 				2EEDC75023EC53CB00A6113F /* PickIconViewController.swift in Sources */,
@@ -328,7 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FFYJJ79MSE;
-				INFOPLIST_FILE = ToDoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,7 +499,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FFYJJ79MSE;
-				INFOPLIST_FILE = ToDoApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

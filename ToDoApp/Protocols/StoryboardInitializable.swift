@@ -29,6 +29,6 @@ extension StoryboardInitializable where Self: UIViewController {
     }
 }
 
-extension UIViewController : StoryboardInitializable {}
+
     
 
