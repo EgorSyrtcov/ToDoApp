@@ -12,8 +12,11 @@ class MainPresenter {
     
     private weak var view: MainViewController!
     
+    let defaultTasks = DefaultTask.createTask()
+    
     init(view: MainViewController) {
         self.view = view
+        view.tasksModel = defaultTasks
     }
     
     func presentCreateVC() {

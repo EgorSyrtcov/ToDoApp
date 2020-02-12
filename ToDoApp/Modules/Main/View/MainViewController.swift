@@ -17,7 +17,7 @@ final class MainViewController: UIViewController {
     
     var presenter: MainPresenter!
     
-    var iconsModel: [Task]? = []
+    var tasksModel: [Task]? = []
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -29,13 +29,13 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return iconsModel?.count ?? 0
+        return tasksModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.MainCellId.rawValue)
-        let icon = iconsModel?[indexPath.row]
-        cell.textLabel?.text = icon?.name
+        let icon = tasksModel?[indexPath.row]
+        cell.textLabel?.text = "Task \(indexPath.row)"
         cell.imageView?.image = UIImage(named: icon?.imageName ?? "Checklist")
         return cell
     }
