@@ -16,7 +16,7 @@ class MainPresenter {
     
     init(view: MainViewController) {
         self.view = view
-        view.tasksModel = defaultTasks
+        view.defaultTask = defaultTasks
     }
     
     func presentCreateVC() {
