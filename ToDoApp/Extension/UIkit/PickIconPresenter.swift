@@ -12,11 +12,8 @@ class PickIconPresenter {
     
     private weak var view: PickIconViewController!
     
-    let tasksModel = DataManager.createIcon()
-    
     init(view: PickIconViewController) {
         self.view = view
-        view.taskModel = tasksModel
     }
     
 }
