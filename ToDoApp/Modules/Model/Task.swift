@@ -12,4 +12,5 @@ struct Task {
 
     var imageName: String
     var name: String?
+    var completed: Bool
 }

@@ -26,4 +26,20 @@ class MainPresenter {
         viewController.presenter = CreatePresenter(view: viewController)
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func doneCompletedTask(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
+            
+            if self?.view.defaultTask?[indexPath.row].completed == true {
+                self?.view.defaultTask?[indexPath.row].completed = false
+                self?.view.tableView.reloadData()
+                return
+            } else {
+                self?.view.defaultTask?[indexPath.row].completed = true
+                self?.view.tableView.reloadData()
+            }
+           
+        }
+        return [done]
+    }
 }
