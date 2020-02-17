@@ -30,9 +30,10 @@ class MainPresenter {
     func doneCompletedTask(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
         let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
             
-            var isComplited = self?.view.defaultTask?[indexPath.row].completed
+            guard var isComplited = self?.view.defaultTask?[indexPath.row].completed else { return }
             
-            isComplited = !isComplited!
+            isComplited = !isComplited
+            self?.view.tableView.reloadData()
         }
         return [done]
     }
