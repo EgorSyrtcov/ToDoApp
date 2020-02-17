@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum Properties: String {
     case mainCellId = "MainCellId"
@@ -17,9 +18,22 @@ final class MainViewController: UIViewController {
     
     var presenter: MainPresenter!
     
-    var defaultTask: [Task]? = []
+    var tasks = [Tasks]()
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchRequest()
+    }
+    
+    private func fetchRequest() {
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        do {
+            let tasks = try PersistenceService.context.fetch(fetchRequest)
+            self.tasks = tasks
+            tableView.reloadData()
+        } catch {}
+    }
     
     @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {
         presenter.presentCreateVC()
@@ -29,14 +43,13 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return defaultTask?.count ?? 0
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
-        let task = defaultTask?[indexPath.row]
-        cell.textLabel?.text = task?.name ?? "" 
-        cell.imageView?.image = UIImage(named: task?.imageName ?? "Checklist")
+        let task = tasks[indexPath.row]
+        cell.textLabel?.text = task.name
         return cell
     }
 }
