@@ -57,7 +57,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
         
         let done = defaultTask?.filter { $0.completed == false }
-        let noDone = defaultTask?.filter { $0.completed == false }
+        let noDone = defaultTask?.filter { $0.completed }
 
         let task = indexPath.section == 0 ? done?[indexPath.row] : noDone?[indexPath.row]
         

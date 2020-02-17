@@ -12,7 +12,7 @@ class MainPresenter {
     
     private weak var view: MainViewController!
     
-    let defaultTasks = DefaultTask.createTask()
+    let defaultTasks = DataManager.createTask()
     
     init(view: MainViewController) {
         self.view = view
@@ -30,15 +30,9 @@ class MainPresenter {
     func doneCompletedTask(_ indexPath: IndexPath) -> [UITableViewRowAction]? {
         let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
             
-            if self?.view.defaultTask?[indexPath.row].completed == true {
-                self?.view.defaultTask?[indexPath.row].completed = false
-                self?.view.tableView.reloadData()
-                return
-            } else {
-                self?.view.defaultTask?[indexPath.row].completed = true
-                self?.view.tableView.reloadData()
-            }
-           
+            var isComplited = self?.view.defaultTask?[indexPath.row].completed
+            
+            isComplited = !isComplited!
         }
         return [done]
     }
