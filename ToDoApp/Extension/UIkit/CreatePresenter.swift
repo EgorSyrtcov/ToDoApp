@@ -23,16 +23,4 @@ class CreatePresenter {
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func saveTask() {
-        guard let newTask = view.nameTaskTextView.text, newTask.isEmpty == false else { return }
-        let task = Tasks(context: PersistenceService.context)
-        task.name = newTask
-        PersistenceService.saveContext()
-        backMainVC()
-    }
-    
-   private func backMainVC() {
-        view.navigationController?.popViewController(animated: true)
-    }
-    
 }
