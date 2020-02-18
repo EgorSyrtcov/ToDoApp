@@ -44,11 +44,19 @@ class MainPresenter {
         let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
             
             guard let task = self?.view.defaultTask?[indexPath.section][indexPath.row] else { return }
-           
+            
             task.completed = !task.completed
             
+            let doneTasks = self?.view.defaultTask?.reduce([], +).filter { $0.completed }
+            
+            let noDoneTasks = self?.view.defaultTask?.reduce([], +).filter { !$0.completed }
+            
+            self?.view.defaultTask = [noDoneTasks ?? [], doneTasks ?? []]
+            
+            self?.view.tableView.reloadData()
+            
         }
-        //view.tableView.reloadData()
+        
         return done
         
     }
