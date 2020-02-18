@@ -11,7 +11,7 @@ import UIKit
 class PickIconViewController: UIViewController {
     
     var presenter: PickIconPresenter!
-    var taskModel = [String]()
+    var taskModel = [Tasks]()
 
     @IBOutlet private weak var tableView: UITableView!
     

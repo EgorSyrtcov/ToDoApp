@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 enum Properties: String {
     case mainCellId = "MainCellId"
@@ -23,16 +22,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchRequest()
-    }
-    
-    private func fetchRequest() {
-        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
-        do {
-            let tasks = try PersistenceService.context.fetch(fetchRequest)
-            self.tasks = tasks
-            tableView.reloadData()
-        } catch {}
+        presenter.fetchRequest()
     }
     
     @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {

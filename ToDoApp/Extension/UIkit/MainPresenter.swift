@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainPresenter {
     
@@ -22,5 +23,15 @@ class MainPresenter {
         .instantiateInitialViewController() as? CreateTaskViewController else { return }
         viewController.presenter = CreatePresenter(view: viewController)
         view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func fetchRequest() {
+        
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        do {
+            let tasks = try PersistenceService.context.fetch(fetchRequest)
+            self.view.tasks = tasks
+            self.view.tableView.reloadData()
+        } catch {}
     }
 }
