@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct Task {
-
+class Task {
+    
+//    var id: String
     var imageName: String
     var name: String?
     var completed: Bool
+    
+    init(imageName: String, name: String?, completed: Bool) {
+        self.imageName = imageName
+        self.name = name
+        self.completed = completed
+    }
 }
