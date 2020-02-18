@@ -12,9 +12,20 @@ class MainPresenter {
     
     private weak var view: MainViewController!
     
+    let defaultTask = DataManager.createTask()
+    
     init(view: MainViewController) {
         self.view = view
-        view.defaultTask = DataManager.createTask()
+        
+       filterTasks()
+    }
+    
+    func filterTasks() {
+        
+        let noDoneTasks = defaultTask.filter({ $0.completed == false})
+        view.defaultTask?.append(noDoneTasks)
+        let doneTasks = defaultTask.filter({ $0.completed })
+        view.defaultTask?.append(doneTasks)
     }
     
     func presentCreateVC() {
@@ -32,13 +43,13 @@ class MainPresenter {
     private func actionSelectItem(_ indexPath: IndexPath) -> UITableViewRowAction {
         let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
             
-            guard let selectedItemName = self?.view.tableView.cellForRow(at: indexPath)?.textLabel?.text,
-                let tasks = self?.view.defaultTask,
-                let selectedTask = (tasks.first { $0.name == selectedItemName }) else { return }
-            selectedTask.completed = !selectedTask.completed
+            guard let task = self?.view.defaultTask?[indexPath.section][indexPath.row] else { return }
+           
+            task.completed = !task.completed
             
-            self?.view.tableView.reloadData()
         }
+        //view.tableView.reloadData()
         return done
+        
     }
 }
