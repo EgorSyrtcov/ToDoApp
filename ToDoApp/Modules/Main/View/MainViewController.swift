@@ -14,8 +14,9 @@ enum Properties: String {
 }
 
 final class MainViewController: UIViewController {
-    
+   
     var presenter: MainPresenter!
+    let numberOfSections = 2
     
     var defaultTask: [Task]? = []
     
@@ -29,7 +30,8 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+
+        return numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +39,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let doneTasks = defaultTask?.filter({ $0.completed })
         let noDoneTasks = defaultTask?.filter({ $0.completed == false })
         
-        return section == 0 ? (noDoneTasks?.count ?? 0) : (doneTasks?.count ?? 0)
+        switch section {
+        case 0:
+            return noDoneTasks?.count ?? 0
+        case 1:
+            return doneTasks?.count ?? 0
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -47,7 +56,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
-            let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
        
         let doneTasks = defaultTask?.filter({ $0.completed })
         let noDoneTasks = defaultTask?.filter({ $0.completed == false
