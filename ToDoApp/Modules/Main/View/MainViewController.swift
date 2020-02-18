@@ -35,9 +35,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let doneTasks = defaultTask?.filter({ $0.completed })
-        
-        let noDoneTasks = defaultTask?.filter({ $0.completed == false
-        })
+        let noDoneTasks = defaultTask?.filter({ $0.completed == false })
         
         return section == 0 ? (noDoneTasks?.count ?? 0) : (doneTasks?.count ?? 0)
     }
@@ -62,17 +60,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        return presenter.doneCompletedTask(indexPath)
-        
-        let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
-            
-            guard let selectedItemName = tableView.cellForRow(at: indexPath)?.textLabel?.text,
-                let tasks = self?.defaultTask,
-                let selectedTask = (tasks.first { $0.name == selectedItemName }) else { return }
-            selectedTask.completed = !selectedTask.completed
-            // delay about 0.3 sec
-            tableView.reloadData()
-        }
-        return [done]
+        return presenter.doneCompletedTask(indexPath)
     }
 }

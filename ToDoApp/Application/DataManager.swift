@@ -11,7 +11,6 @@ import Foundation
 class DataManager {
     
    class func createIcon() -> [Task] {
-    // id / tag
     
     return [Task( imageName: "Baby", name: nil, completed: false),
             Task(imageName: "Birthday", name: nil, completed: false),

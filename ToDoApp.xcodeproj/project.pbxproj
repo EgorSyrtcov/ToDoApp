@@ -128,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2EEDC73123EC339200A6113F /* AppDelegate.swift */,
+				2EEDC75623EC5B2700A6113F /* DataManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -242,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE7EAE423F3D3D200CEF144 /* UIkit */,
-				2EEDC75623EC5B2700A6113F /* DataManager.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
