@@ -15,8 +15,6 @@
 		2EE7EAFE23F3DA9000CEF144 /* SplashController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EE7EAFD23F3DA9000CEF144 /* SplashController.storyboard */; };
 		2EE7EB2223F42A4800CEF144 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EB2123F42A4800CEF144 /* PersistenceService.swift */; };
 		2EE7EB2523F42BDA00CEF144 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EB2323F42BDA00CEF144 /* ToDoApp.xcdatamodeld */; };
-		2EE7EB2A23F42ED800CEF144 /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EB2823F42ED800CEF144 /* Tasks+CoreDataClass.swift */; };
-		2EE7EB2B23F42ED800CEF144 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7EB2923F42ED800CEF144 /* Tasks+CoreDataProperties.swift */; };
 		2EEDC73223EC339200A6113F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC73123EC339200A6113F /* AppDelegate.swift */; };
 		2EEDC73423EC339200A6113F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDC73323EC339200A6113F /* MainViewController.swift */; };
 		2EEDC73923EC339400A6113F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEDC73823EC339400A6113F /* Assets.xcassets */; };
@@ -38,8 +36,6 @@
 		2EE7EAFD23F3DA9000CEF144 /* SplashController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashController.storyboard; sourceTree = "<group>"; };
 		2EE7EB2123F42A4800CEF144 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		2EE7EB2423F42BDA00CEF144 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
-		2EE7EB2823F42ED800CEF144 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2EE7EB2923F42ED800CEF144 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2EEDC72E23EC339200A6113F /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEDC73123EC339200A6113F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EEDC73323EC339200A6113F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -217,8 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE7EB2123F42A4800CEF144 /* PersistenceService.swift */,
-				2EE7EB2823F42ED800CEF144 /* Tasks+CoreDataClass.swift */,
-				2EE7EB2923F42ED800CEF144 /* Tasks+CoreDataProperties.swift */,
 				2EE7EB1923F4246200CEF144 /* Model */,
 			);
 			path = CoreData;
@@ -365,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EEDC73423EC339200A6113F /* MainViewController.swift in Sources */,
-				2EE7EB2B23F42ED800CEF144 /* Tasks+CoreDataProperties.swift in Sources */,
 				2EEDC73223EC339200A6113F /* AppDelegate.swift in Sources */,
 				2EE7EAF823F3D86700CEF144 /* CreatePresenter.swift in Sources */,
 				2EE7EAE623F3D40200CEF144 /* UIViewControllerStoryboard.swift in Sources */,
@@ -376,7 +369,6 @@
 				2EE7EAFC23F3DA5800CEF144 /* SplashController.swift in Sources */,
 				2EEDC74E23EC479000A6113F /* StoryboardInitializable.swift in Sources */,
 				2EEDC74923EC45D800A6113F /* CreateTaskViewController.swift in Sources */,
-				2EE7EB2A23F42ED800CEF144 /* Tasks+CoreDataClass.swift in Sources */,
 				2EEDC75023EC53CB00A6113F /* PickIconViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

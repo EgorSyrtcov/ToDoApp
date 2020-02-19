@@ -28,10 +28,13 @@ class MainPresenter {
     func fetchRequest() {
         
         let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        
         do {
-            let tasks = try PersistenceService.context.fetch(fetchRequest)
+            let tasks = try PersistenceService.viewContext.fetch(fetchRequest)
             self.view.tasks = tasks
             self.view.tableView.reloadData()
-        } catch {}
+        } catch let error {
+            print(error)
+        }
     }
 }
