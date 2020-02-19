@@ -10,7 +10,6 @@ import Foundation
 
 class Task {
     
-//    var id: String
     var imageName: String
     var name: String?
     var completed: Bool

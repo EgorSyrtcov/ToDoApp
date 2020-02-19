@@ -20,7 +20,7 @@ class MainPresenter {
        filterTasks()
     }
     
-    func filterTasks() {
+   private func filterTasks() {
         
         let noDoneTasks = defaultTask.filter({ $0.completed == false})
         view.defaultTask?.append(noDoneTasks)
@@ -54,10 +54,7 @@ class MainPresenter {
             self?.view.defaultTask = [noDoneTasks ?? [], doneTasks ?? []]
             
             self?.view.tableView.reloadData()
-            
         }
-        
         return done
-        
     }
 }
