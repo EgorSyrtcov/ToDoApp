@@ -25,13 +25,14 @@ class CreatePresenter {
     
     func saveTask() {
         guard let newTask = view.nameTaskTextView.text, newTask.isEmpty == false else { return }
-        let task = Tasks(context: PersistenceService.viewContext)
+        let task = Tasks(context: PersistenceService.shared.viewContext)
         task.name = newTask
-        PersistenceService.saveContext()
+        PersistenceService.shared.saveContext()
         backMainVC()
     }
     
    private func backMainVC() {
         view.navigationController?.popViewController(animated: true)
+    
     }
 }

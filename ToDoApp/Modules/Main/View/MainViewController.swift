@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum Properties: String {
     case mainCellId = "MainCellId"
@@ -17,14 +18,22 @@ final class MainViewController: UIViewController {
     
     var presenter: MainPresenter!
     
-    var tasks = [Tasks]()
+    var fetchResultController: NSFetchedResultsController<Tasks>!
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         presenter.fetchRequest()
+        fetchResultController.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+  
     @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {
         presenter.presentCreateVC()
     }
@@ -32,14 +41,38 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchResultController.sections?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        let sectionInfo = fetchResultController.sections?[section]
+        
+        return sectionInfo?.numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
-        let task = tasks[indexPath.row]
+        
+        let task = fetchResultController.object(at: indexPath)
+        
         cell.textLabel?.text = task.name
         return cell
     }
 }
+
+extension MainViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            
+            if indexPath != nil {
+                tableView.insertRows(at: [indexPath!], with: .automatic)
+            }
+        default:
+            break
+        }
+    }
+}
+

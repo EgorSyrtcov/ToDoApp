@@ -6,16 +6,20 @@
 //  Copyright © 2020 Egor Syrtcov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class PersistenceService {
-
-    static var viewContext: NSManagedObjectContext {
+    
+    static let shared = PersistenceService()
+    
+    lazy var viewContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
-    }
-
-    static var persistentContainer: NSPersistentContainer = {
+    }()
+    
+    let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+    
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ToDoApp")
         container.loadPersistentStores(completionHandler: { _, error in
             if let error = error as NSError? {
@@ -24,15 +28,15 @@ class PersistenceService {
         })
         return container
     }()
-
-    static func saveContext () {
+    
+    func saveContext () {
         let context = persistentContainer.viewContext
-            if context.hasChanges {
-        do {
-            try context.save()
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }

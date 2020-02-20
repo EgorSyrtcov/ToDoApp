@@ -28,11 +28,13 @@ class MainPresenter {
     func fetchRequest() {
         
         let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        view.fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: PersistenceService.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
         do {
-            let tasks = try PersistenceService.viewContext.fetch(fetchRequest)
-            self.view.tasks = tasks
-            self.view.tableView.reloadData()
+            try view.fetchResultController.performFetch()
         } catch let error {
             print(error)
         }
