@@ -43,16 +43,22 @@ class MainPresenter {
     private func actionSelectItem(_ indexPath: IndexPath) -> UITableViewRowAction {
         let done = UITableViewRowAction(style: .normal, title: "Done") { [weak self] (action, indexPath) in
             
-            guard let task = self?.view.defaultTask?[indexPath.section][indexPath.row] else { return }
+            guard var _defaultTask = self?.view.defaultTask else { return }
+            self?.view.defaultTask = []
             
-            task.completed = !task.completed
+            let completed = _defaultTask[indexPath.section][indexPath.row].completed
+            _defaultTask[indexPath.section][indexPath.row].completed = !completed
             
-            let doneTasks = self?.view.defaultTask?.reduce([], +).filter { $0.completed }
+            var doneTasks = _defaultTask[0].filter{ $0.completed == false}
+            doneTasks += _defaultTask[1].filter{ $0.completed == false}
             
-            let noDoneTasks = self?.view.defaultTask?.reduce([], +).filter { !$0.completed }
+            var noDoneTasks = _defaultTask[0].filter{ $0.completed }
+            noDoneTasks += _defaultTask[1].filter{ $0.completed }
             
-            self?.view.defaultTask = [noDoneTasks ?? [], doneTasks ?? []]
+            self?.view.defaultTask?.append(doneTasks)
+            self?.view.defaultTask?.append(noDoneTasks)
             
+            self?.view.defaultTask = self?.view.defaultTask
             self?.view.tableView.reloadData()
         }
         return done
