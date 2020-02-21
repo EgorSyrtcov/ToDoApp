@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum Properties: String {
     case mainCellId = "MainCellId"
@@ -17,10 +18,21 @@ final class MainViewController: UIViewController {
     
     var presenter: MainPresenter!
     
-    var defaultTask: [Task]? = []
+    var fetchResultController: NSFetchedResultsController<Tasks>!
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.fetchRequest()
+        fetchResultController.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+  
     @IBAction private func addTaskButton(_ sender: UIBarButtonItem) {
         presenter.presentCreateVC()
     }
@@ -28,15 +40,38 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchResultController.sections?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return defaultTask?.count ?? 0
+        let sectionInfo = fetchResultController.sections?[section]
+        
+        return sectionInfo?.numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Properties.mainCellId.rawValue)
-        let task = defaultTask?[indexPath.row]
-        cell.textLabel?.text = task?.name ?? "" 
-        cell.imageView?.image = UIImage(named: task?.imageName ?? "Checklist")
+        
+        let task = fetchResultController.object(at: indexPath)
+        
+        cell.textLabel?.text = task.name
         return cell
     }
 }
+
+extension MainViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            
+            if indexPath != nil {
+                tableView.insertRows(at: [indexPath!], with: .automatic)
+            }
+        default:
+            break
+        }
+    }
+}
+

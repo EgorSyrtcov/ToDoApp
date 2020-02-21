@@ -7,16 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class MainPresenter {
     
     private weak var view: MainViewController!
     
-    let defaultTasks = DefaultTask.createTask()
-    
     init(view: MainViewController) {
         self.view = view
-        view.defaultTask = defaultTasks
     }
     
     func presentCreateVC() {
@@ -25,5 +23,20 @@ class MainPresenter {
         .instantiateInitialViewController() as? CreateTaskViewController else { return }
         viewController.presenter = CreatePresenter(view: viewController)
         view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func fetchRequest() {
+        
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        view.fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: PersistenceService.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try view.fetchResultController.performFetch()
+        } catch let error {
+            print(error)
+        }
     }
 }
