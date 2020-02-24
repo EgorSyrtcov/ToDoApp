@@ -12,14 +12,14 @@ final class CreateTaskViewController: UIViewController {
     
     var presenter: CreatePresenter!
     
-    @IBOutlet private weak var nameTaskTextView: UITextView!
-    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet weak var nameTaskTextView: UITextView!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     @IBAction func selectionIconButton(_ sender: UIButton) {
         presenter.presentPickIconVC()
     }
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        
+        presenter.saveTask()
     }
 }
