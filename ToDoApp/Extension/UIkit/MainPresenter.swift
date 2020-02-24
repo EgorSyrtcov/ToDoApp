@@ -78,4 +78,38 @@ class MainPresenter {
             print(error)
         }
     }
+    
+    func editTask(indexPath: IndexPath) -> [UITableViewRowAction?] {
+        let editButton = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (rowAction, indexPath) in
+            let task = self?.view.fetchResultController.object(at: indexPath)
+            
+            let alertController = UIAlertController(title: "Редактирование задачи", message: task?.name, preferredStyle: .alert)
+            
+            alertController.addTextField { (textField) in
+                textField.placeholder = "\(task?.name ?? "new task")"
+            }
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak self] (_) in
+                let task = self?.view.fetchResultController.object(at: indexPath)
+                
+                guard let newTask = alertController.textFields?[0] else { return }
+                task?.name = newTask.text
+                
+                PersistenceService.shared.saveContext()
+                
+                self?.view.tableView.reloadData()
+            }))
+            
+            self?.view.present(alertController, animated: true, completion: nil)
+        }
+        
+        let deleteButton = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction, indexPath) in
+            let task = self.view.fetchResultController.object(at: indexPath)
+            
+            PersistenceService.shared.persistentContainer.viewContext.delete(task)
+            PersistenceService.shared.saveContext()
+        }
+        return [deleteButton, editButton]
+    }
 }
+
