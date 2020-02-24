@@ -71,17 +71,25 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //        return presenter?.doneCompletedTask(indexPath)
 //    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return presenter.editTask(indexPath: indexPath) as? [UITableViewRowAction]
+    }
 }
 
 extension MainViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
+        guard let indexPath = indexPath else { return }
+        
         switch type {
         case .insert:
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath], with: .middle)
+        case .update:
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             
-            if indexPath != nil {
-                tableView.insertRows(at: [indexPath!], with: .automatic)
-            }
         default:
             break
         }
