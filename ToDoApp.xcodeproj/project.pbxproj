@@ -217,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE7EB2123F42A4800CEF144 /* PersistenceService.swift */,
-				2EE7EB1923F4246200CEF144 /* Model */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -235,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				2EE7EB2323F42BDA00CEF144 /* ToDoApp.xcdatamodeld */,
+				2EE7EB1923F4246200CEF144 /* Model */,
 				2EE7EB1123F422AF00CEF144 /* CoreData */,
 				2EEDC73023EC339200A6113F /* ToDoApp */,
 				2EE7EAE723F3D46300CEF144 /* Resourses */,

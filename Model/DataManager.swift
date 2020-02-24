@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DefaultTask {
+class DataManager {
 
  class func createIcon() -> [Task] {
     
